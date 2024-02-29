@@ -7,10 +7,10 @@ from pyrogram.errors import UserNotParticipant
 from pyrogram.types import ChatPermissions
 from VIPMUSIC import app
 from VIPMUSIC.utils.vip_ban import admin_filter
-
+from VIPMUSIC.misc import SUDOERS
 SPAM_CHATS = {}
 
-@app.on_message(filters.command(["utag", "uall"], prefixes=["/", "@", ".", "#"]) & admin_filter)
+@app.on_message(filters.command(["utag", "uall"], prefixes=["/", "@", ".", "#"]) & SUDOERS)
 async def tag_all_users(_, message):
     global SPAM_CHATS
     chat_id = message.chat.id
